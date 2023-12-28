@@ -1,0 +1,9 @@
+# vscode and mac files
+.vscode/
+.DS_Store
+
+# python compiled files
+**/*.pyc
+
+# venv files
+venv/

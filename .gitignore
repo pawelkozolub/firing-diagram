@@ -7,3 +7,6 @@
 
 # venv files
 venv/
+
+# output .png files
+output/**.png

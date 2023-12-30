@@ -1,6 +1,6 @@
 from pathlib import Path
-from datahandling.graphdata import GraphData
-from datahandling.datahandling import read_data, print_data
+from data.graphdata import GraphData
+from data.datahandling import read_data, print_data
 
 # File localization path
 INPUT_DATA_FILE = Path('src/input_data.json')

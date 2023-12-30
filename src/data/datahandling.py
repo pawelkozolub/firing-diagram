@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from datahandling.graphdata import GraphData
+from data.graphdata import GraphData
 
 
 def read_data(file_path: Path) -> dict:

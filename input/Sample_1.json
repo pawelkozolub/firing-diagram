@@ -1,0 +1,24 @@
+{
+    "setname": "Fuel 1",
+    "points": [
+        {"label": "A", "x": 28.93, "y": 108.5},
+        {"label": "B", "x": 53.81, "y": 112.1},
+        {"label": "C", "x": 24.21, "y": 50.4},
+        {"label": "D", "x": 13.02, "y": 48.8}
+    ],
+    "lines": [
+        {"label": "13.5 MJ/kg", "lhv": 13.5},
+        {"label": "7.5 MJ/kg", "lhv": 7.5}
+    ],
+    "sections": [
+        {"label": "A-B", "color": "green", "style": "-"},
+        {"label": "B-C", "color": "green", "style": "-"},
+        {"label": "C-D", "color": "green", "style": "-"},
+        {"label": "D-A", "color": "green", "style": "-"}
+    ],
+    "plot_axes": [
+        {"label": "x_axis", "x_min": 0, "x_max": 80, "x_step": 10},
+        {"label": "y_axis", "y_min": 20, "y_max": 150, "y_step": 10}
+    ]
+}
+  

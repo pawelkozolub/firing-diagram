@@ -1,0 +1,30 @@
+{
+    "setname": "Fuel 2",
+    "points": [
+        {"label": "A", "x": 28.93, "y": 108.5},
+        {"label": "B", "x": 39.67, "y": 110.2},
+        {"label": "C", "x": 53.81, "y": 112.1},
+        {"label": "D", "x": 24.21, "y": 50.4},
+        {"label": "E", "x": 17.85, "y": 49.6},
+        {"label": "F", "x": 13.02, "y": 48.8}
+    ],
+    "lines": [
+        {"label": "13.5 MJ/kg", "lhv": 13.5},
+        {"label": "10.0 MJ/kg", "lhv": 10.0},
+        {"label": "7.5 MJ/kg", "lhv": 7.5}
+    ],
+    "sections": [
+        {"label": "A-B", "color": "green", "style": "-"},
+        {"label": "B-E", "color": "green", "style": "-"},
+        {"label": "E-F", "color": "green", "style": "-"},
+        {"label": "F-A", "color": "green", "style": "-"},
+        {"label": "B-C", "color": "coral", "style": "--"},
+        {"label": "C-D", "color": "coral", "style": "--"},
+        {"label": "D-E", "color": "coral", "style": "--"}
+    ],
+    "plot_axes": [
+        {"label": "x_axis", "x_min": 0, "x_max": 80, "x_step": 10},
+        {"label": "y_axis", "y_min": 20, "y_max": 150, "y_step": 10}
+    ]
+}
+  

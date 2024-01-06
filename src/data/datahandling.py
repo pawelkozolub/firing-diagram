@@ -3,15 +3,38 @@ from pathlib import Path
 from data.dataset import DataSet
 
 
+def read_input(file_path: Path) -> list:
+    """Retrieves input data file location. Returns a list with input file paths."""
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+        file_paths = []
+        for filename in data['filenames']:
+            file_paths.append(Path(data['input_dir'], filename + '.json'))
+        return file_paths
+    except IOError as err:
+        print('\nError: Cannot read input_data.json file.\n', err)
+        raise
+
+
 def read_data(file_path: Path) -> dict:
-    """Retrieves input data from input data file. Returns dictionary with input data that has been read."""
+    """Retrieves input data from input data file used for a graph creation. 
+    Returns a dictionary with input data for graph preparation containing:
+    - setname
+    - points
+    - lines
+    - sections
+    - axes settings
+
+    If no file is found, returns None and skips file to next one.
+    """
     try:
         with open(file_path, 'r') as f:
             data = json.load(f)
         return data
-    except IOError as err:
-        print('Input file error...\n', err)
-        raise
+    except:
+        print(f'\nWarning: Cannot read data from file \'{file_path}\'. File skipped...\n')
+        return None
 
 
 def print_data(data: DataSet) -> None:

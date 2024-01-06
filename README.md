@@ -39,4 +39,6 @@ Prior to running it may be needed to install required Python libraries. Please c
 
 ## Author
 
-[@ Pawel Kozolub](https://github.com/pawelkozolub)
+[@PawelKozolub](https://github.com/pawelkozolub)
+\
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pawel-kozolub)

@@ -8,7 +8,7 @@ OUTPUT_DIR = 'output/'
 FIG_EXT = '.png'
 
 
-def graph(data: DataSet) -> None:
+def graph(data: DataSet, fig_name: str) -> None:
     """Create graph/plot function from data provided."""
     plt.rcParams['figure.figsize'] = [7.50, 5.00]
     plt.rcParams['figure.autolayout'] = True
@@ -65,7 +65,6 @@ def graph(data: DataSet) -> None:
     # plt.show()
         
     # Saving plot to file
-    fig_name = 'Figure'
     fig_to_save = Path(OUTPUT_DIR + fig_name + FIG_EXT)
     plt.savefig(fig_to_save)
     print('\n' + str(fig_to_save) + ' ...Saved')

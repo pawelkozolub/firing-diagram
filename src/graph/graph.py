@@ -31,8 +31,8 @@ def graph(data: DataSet, fig_name: str) -> None:
     plt.ylim([y_min, y_max])
 
     # Plotting data for lines
-    x_offset = -1.5
-    y_offset = -y_step    
+    x_offset = data.axes[2]['x_offset']
+    y_offset = data.axes[2]['y_offset']    
     for line in data.lines:
         plt.plot(
             line.x, 
@@ -42,7 +42,7 @@ def graph(data: DataSet, fig_name: str) -> None:
         plt.text(
             line.x[1] + x_offset, 
             line.y[1] + y_offset, 
-            line.label, fontdict={'color':'steelblue'})
+            line.label, fontdict={'color':'mediumblue'})
 
     # Plotting data for sections
     for section in data.sections:
@@ -52,8 +52,8 @@ def graph(data: DataSet, fig_name: str) -> None:
             linestyle=section.style, linewidth=2.0, color=section.color, alpha=1.0) 
     
     # Plotting data for points
-    x_offset = -1.5
-    y_offset = 1.5
+    x_offset = data.axes[3]['x_offset']
+    y_offset = data.axes[3]['y_offset'] 
     for point in data.points:
         plt.plot(
             point.x, 

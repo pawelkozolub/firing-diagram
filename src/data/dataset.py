@@ -6,21 +6,21 @@ class DataSet:
     "Class that aggregates data retrieved from an input file."
     def __init__(self, data: dict) -> None:
         self._setname = data['setname']
-        self._axes = data['plot_axes']
+        self._settings = data['settings']
         self._points = []
         self._lines = []
         self._sections = []
         self._update_points(data['points'])
-        self._update_lines(data['lines'], self.axes)
+        self._update_lines(data['lines'], self.settings)
         self._update_sections(data['sections'], self.points)
 
     def _update_points(self, points: list) -> None:
         for point in points:
             self._points.append(Point(point))
 
-    def _update_lines(self, lines: list, axes: list) -> None:
+    def _update_lines(self, lines: list, settings: list) -> None:
         for line in lines:
-            self._lines.append(Line(line, axes))
+            self._lines.append(Line(line, settings))
 
     def _update_sections(self, sections: list, points: list) -> None:
         for section in sections:
@@ -40,8 +40,8 @@ class DataSet:
         return self._setname
     
     @property
-    def axes(self) -> list:
-        return self._axes
+    def settings(self) -> list:
+        return self._settings
     
     @property
     def points(self) -> Point:

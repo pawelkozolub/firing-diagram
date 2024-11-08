@@ -12,27 +12,28 @@ def graph(data: DataSet, fig_name: str) -> None:
     """Create graph/plot function from data provided."""
     plt.rcParams['figure.figsize'] = [7.50, 5.00]
     plt.rcParams['figure.autolayout'] = True
-    plt.title('Firing diagram: ' + data.setname)
+    plt.title(data.setname)
 
     # Adjusting x-axis
     plt.xlabel('Fuel Flow, t/h')
-    x_min = data.axes[0]['x_min']
-    x_max = data.axes[0]['x_max']
-    x_step = data.axes[0]['x_step']   
+    x_min = data.settings[0]['x_min']
+    x_max = data.settings[0]['x_max']
+    x_step = data.settings[0]['x_step']   
     plt.xticks(np.arange(x_min, x_max, x_step))
     plt.xlim([x_min, x_max])
     
     # Adjusting y-axis
     plt.ylabel('Heat Input, MW')
-    y_min = data.axes[1]['y_min']
-    y_max = data.axes[1]['y_max']
-    y_step = data.axes[1]['y_step'] 
+    y_min = data.settings[1]['y_min']
+    y_max = data.settings[1]['y_max']
+    y_step = data.settings[1]['y_step'] 
     plt.yticks(np.arange(y_min, y_max, y_step))
     plt.ylim([y_min, y_max])
 
     # Plotting data for lines
-    x_offset = data.axes[2]['x_offset']
-    y_offset = data.axes[2]['y_offset']    
+    color = data.settings[2]['color']
+    fontsize = data.settings[2]['fontsize']
+    fontweight = 'bold' if data.settings[2]['bold'] == 'yes' else 'normal'   
     for line in data.lines:
         plt.plot(
             line.x, 
@@ -40,9 +41,10 @@ def graph(data: DataSet, fig_name: str) -> None:
             linestyle='--', linewidth=1.0, color='steelblue', alpha=0.5)   
 
         plt.text(
-            line.x[1] + x_offset, 
-            line.y[1] + y_offset, 
-            line.label, fontdict={'color':'mediumblue'})
+            line.x[1] + line.label_offset_x, 
+            line.y[1] + line.label_offset_y, 
+            line.label, 
+            fontdict={'color':color, 'fontsize':fontsize, 'fontweight':fontweight})
 
     # Plotting data for sections
     for section in data.sections:
@@ -51,15 +53,20 @@ def graph(data: DataSet, fig_name: str) -> None:
             section.y, 
             linestyle=section.style, linewidth=2.0, color=section.color, alpha=1.0) 
     
-    # Plotting data for points
-    x_offset = data.axes[3]['x_offset']
-    y_offset = data.axes[3]['y_offset'] 
+    # Plotting data for points 
+    color = data.settings[3]['color']
+    fontsize = data.settings[3]['fontsize']
+    fontweight = 'bold' if data.settings[3]['bold'] == 'yes' else 'normal'   
     for point in data.points:
         plt.plot(
             point.x, 
             point.y, 
             marker='o', markersize=5, linewidth=0, color='k')
-        plt.text(point.x + x_offset, point.y + y_offset, point.label)
+        plt.text(
+            point.x + point.label_offset_x, 
+            point.y + point.label_offset_y, 
+            point.label,
+            fontdict={'color':color, 'fontsize':fontsize, 'fontweight':fontweight})
 
     # Showing plot in external window
     # plt.show()

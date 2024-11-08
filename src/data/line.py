@@ -6,6 +6,8 @@ class Line:
         self._x = []
         self._y = []
         self._update_line(axes)
+        self._label_offset_x = line['label_offset_x']
+        self._label_offset_y = line['label_offset_y']
 
     def _update_line(self, axes: list) -> None:
         for axis in axes:
@@ -34,3 +36,11 @@ class Line:
     @property
     def y(self) -> float:
         return self._y
+    
+    @property
+    def label_offset_x(self) -> float:
+        return self._label_offset_x
+    
+    @property
+    def label_offset_y(self) -> float:
+        return self._label_offset_y
